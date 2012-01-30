@@ -17,8 +17,7 @@
     <td><%= post.content %></td>
     <td><%= join_tags(post) %> </td>
     <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= admin_connected?(post) %> </td>
   </tr>
 <% end %>
 </table>
@@ -26,3 +25,6 @@
 <br />
 
 <%= link_to 'New Post', new_post_path %>
+<br>
+<br>
+

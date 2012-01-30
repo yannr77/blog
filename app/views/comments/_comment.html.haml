@@ -1,0 +1,11 @@
+%p
+  %b Name:
+  = comment.commenter
+%p
+  %b Content:
+  = comment.body
+%p
+  - if can? :destroy, @post
+    = link_to 'Destroy Comment', [comment.post, comment], |
+      :confirm => 'Are you sure?',                        |
+      :method => :delete                                  |

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   
   # GET /posts
   # GET /posts.json
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
+    unauthorized! if cannot? :read, @post
     end
   end
 
@@ -30,19 +32,21 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @post }
+    unauthorized! if cannot? :create, @post
     end
   end
 
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    unauthorized! if cannot? :update, @post
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    unauthorized! if cannot? :create, @post
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -58,7 +62,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
-
+    unauthorized! if cannot? :update, @post
     respond_to do |format|
       if @post.update_attributes(params[:post])
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -75,7 +79,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-
+    unauthorized! if cannot? :destroy, @post
     respond_to do |format|
       format.html { redirect_to posts_url }
       format.json { head :ok }

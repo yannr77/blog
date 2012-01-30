@@ -15,9 +15,9 @@
     <td><%= post.name %></td>
     <td><%= post.title %></td>
     <td><%= post.content %></td>
-    <td><%= join_tags(post) %> </td>
+    <td><%= join_tags(post) %></td>
     <td><%= link_to 'Show', post %></td>
-    <td><%= admin_connected?(post) %> </td>
+    <%= links_for_admin(post) %>
   </tr>
 <% end %>
 </table>

@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'devise'
 gem "cancan"
 gem 'haml'
+gem 'will_paginate', '~> 3.0'
 
 # Gems used only for assets and not required
 # in production environments by default.

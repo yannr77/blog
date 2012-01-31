@@ -1,3 +1,44 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+////////////////////  HEADER  ////////////////////////
+#headband{
+  padding: 10px 0px 10px 20px;
+  margin: -10px -10px 15px -10px;
+  position: relative;
+  
+  background-color: #CCC;
+  color: #FFFFFF;
+}
+
+#admin_nav{
+  position: relative;
+  padding-bottom: 10px;
+}
+
+////////////////////  CONTENT  ////////////////////////
+.page_title{
+  margin-left: 10px; 
+}
+
+.notice{
+  font-color: #FF0000;
+}
+
+#content{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#post_table{
+  width: 1030px;
+  .post_name, post_title, post_content{
+    width: 204px;
+    text-align: center;
+  }
+  tr, td{
+    text-align: center;
+  }
+}
+////////////////////  FOOTER  ////////////////////////

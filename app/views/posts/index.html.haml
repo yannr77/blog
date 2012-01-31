@@ -1,25 +1,38 @@
-%h1 Listing posts
-%table
+
+%h1.page_title Listing posts
+%table#post_table
   %tr
-    %th Name
-    %th Title
-    %th Content
-    %th Tag
+    %th.post_author Name
+    %th.post_title Title
+    %th.post_content Content
+    %th.post_tags Tag
     %th
     %th
   - @posts.each do |post|
     %tr
-      %td= post.name
-      %td= post.title
-      %td= post.content
-      %td= join_tags(post)
-      %td= link_to 'Show', post
-      - if can? :update, post
-        %td= link_to 'Edit', edit_post_path(post)
-      - if can? :destoy, post
-        %td= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete
+      %td
+        = post.name
+      %td
+        = truncate(post.title)
+      %td
+        = truncate(post.content)
+      %td
+        - if join_tags(post) == ""
+          = "-"
+        - else
+          = join_tags(post)
+      .admin_links
+        %td
+          = link_to 'Show', post
+          - if can? :update, post
+            %td
+              = link_to 'Edit', edit_post_path(post)
+          - if can? :destoy, post
+            %td
+              = link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete
 %br
-- if can? :create, new_post_path
-  = link_to 'New Post', new_post_path
+.new_post_link
+  - if can? :create, new_post_path
+    = link_to 'New Post', new_post_path
 %br
   %br

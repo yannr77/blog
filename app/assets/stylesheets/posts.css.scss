@@ -5,9 +5,7 @@
 ////////////////////  HEADER  ////////////////////////
 #headband{
   padding: 10px 0px 10px 20px;
-  margin: -10px -10px 0px -10px;
-
-  width: 100%;
+  margin: -10px -8px 0px -8px;
   
   background-color: #191919;
   color: #FFFFFF;
@@ -38,11 +36,11 @@
 }
 
 #content{
-  margin-left: 10%;
-  margin-right: 10%;
+  width: 80%;
+  margin-left: 9.5%;
   .block_content{
     background-color: #FFF;
-    width: 1000px;
+    width: 100%;
     padding: 10px 10px 10px 10px;
     -webkit-box-shadow: 3px 2px 10px 2px #898989;
     -webkit-border-radius: 0px 0px 10px 10px;
@@ -50,7 +48,7 @@
 }
 
 #post_table{
-  width: 1000px;
+  width: 100%;
   tr, td{
     text-align: center;
   }

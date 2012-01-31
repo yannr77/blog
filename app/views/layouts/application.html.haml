@@ -5,7 +5,7 @@
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
+  %body.body
     #headband
       %h1
         My Blog 
@@ -21,4 +21,5 @@
           or
           \#{link_to "Sign in", new_admin_session_path}
     #content
-      = yield
+      .block_content
+        = yield

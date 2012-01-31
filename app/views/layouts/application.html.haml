@@ -8,11 +8,14 @@
   %body
     #headband
       %h1
-        My Blog  
+        My Blog 
       #admin_nav
         - if admin_signed_in?
           Signed in as #{current_admin.email}. Not you?
           \#{link_to "Sign out", destroy_admin_session_path, method: :delete}
+          .search_bar
+            = text_field_tag :search, params[:search]
+            = submit_tag "Search", :name => nil
         - else
           = link_to "Sign up", new_admin_registration_path
           or

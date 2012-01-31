@@ -1,5 +1,4 @@
-
-%h1.page_title Listing posts
+%h1.page_title All Posts
 %table#post_table
   %tr
     %th.post_author Name
@@ -8,6 +7,7 @@
     %th.post_tags Tag
     %th
     %th
+  %hr
   - @posts.each do |post|
     %tr
       %td
@@ -21,18 +21,16 @@
           = "-"
         - else
           = join_tags(post)
-      .admin_links
-        %td
-          = link_to 'Show', post
-          - if can? :update, post
-            %td
-              = link_to 'Edit', edit_post_path(post)
-          - if can? :destoy, post
-            %td
-              = link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete
+      %td
+        = link_to 'Show', post
+        - if can? :update, post
+          %td
+            = link_to 'Edit', edit_post_path(post)
+        - if can? :destoy, post
+          %td
+            = link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete
+
 %br
 .new_post_link
   - if can? :create, new_post_path
     = link_to 'New Post', new_post_path
-%br
-  %br

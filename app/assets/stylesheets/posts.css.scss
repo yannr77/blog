@@ -59,7 +59,9 @@ h1, h2 {
       margin-top: 10px;
       -webkit-border-radius: 5px;
       -webkit-box-shadow: 0px 1px 2px #898989;
-      
+      .post_video{
+        margin-left: 50px;
+      }
       .post_content, .post_title, .post_author, .post_tags{
         width: 600px;
       }

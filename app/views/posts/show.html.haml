@@ -1,13 +1,16 @@
 %p.notice= notice
 %p
-  %b Name:
-  = @post.name
+  %h2
+    = @post.title
 %p
-  %b Title:
-  = @post.title
-%p
-  %b Content:
+  %i
+    By 
+    = @post.name
+    = @post.created_at.to_formatted_s(:short)
+%h4
   = @post.content
+%p
+  = @post.video.html_safe
 %p
   %b Tags:
   = @post.tags.map {|t| t.name}.join(", ")

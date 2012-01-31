@@ -20,6 +20,11 @@
     = post_form.label :content
     %br
     = post_form.text_area(:content, :rows => 10, :cols => 50)
+  .field
+    = post_form.label :embed_video
+    %br
+    = post_form.text_field :video
+
   %h2 Tags
   = render :partial => 'tags/form', |
     :locals => {:form => post_form} |

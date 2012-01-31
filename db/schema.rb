@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120127153147) do
     t.string   "name"
     t.string   "title"
     t.text     "content"
+    t.string   "video"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

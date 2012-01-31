@@ -9,12 +9,15 @@
       %h2
         = truncate(post.title, :length => 120)
     .post_author
-      By 
-      = truncate(post.name, :length => 120)
-      = post.created_at.to_formatted_s(:short)
+      %i
+        By 
+        = truncate(post.name, :length => 120)
+        = post.created_at.to_formatted_s(:short)
     .post_content
       %h4
         = truncate(post.content, :length => 120)
+    .post_video
+      = post.video.html_safe
     .post_tags
       - if join_tags(post) == ""
         = "-"

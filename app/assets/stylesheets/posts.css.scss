@@ -16,6 +16,9 @@
 #admin_nav{
   padding-bottom: 10px;
   float: left;
+  a{
+    color: #488CA1;
+  }
 }
 .search_bar{
   float: right;
@@ -35,28 +38,39 @@
 .notice{
   font-color: #FF0000;
 }
+h1, h2 {
+  text-shadow: 1px 1px #AEAEAE
+}
 
 #content{
   width: 80%;
   margin-left: 9.5%;
   .block_content{
     background-color: #FFF;
-    width: 100%;
     padding: 10px 10px 10px 10px;
     -webkit-box-shadow: 3px 2px 10px 2px #898989;
     -webkit-border-radius: 0px 0px 10px 10px;
+    .block_post{
+      padding-top: 1px;
+      padding-left: 5px;
+      padding-bottom: 5px;
+      background-color: #F7F9F9;
+      margin-left: 0px;
+      margin-top: 10px;
+      -webkit-border-radius: 5px;
+      -webkit-box-shadow: 0px 1px 2px #898989;
+      
+      .post_content, .post_title, .post_author, .post_tags{
+        width: 600px;
+      }
+    }
   }
 }
-
-#post_table{
-  width: 100%;
-  tr, td{
-    text-align: center;
-  }
-}
-
 .new_post_link{
   margin-top: 15px;
-  margin-left: 50%;
+  text-align: center;
 }
 ////////////////////  FOOTER  ////////////////////////
+.paginate{
+  text-align: center;
+}

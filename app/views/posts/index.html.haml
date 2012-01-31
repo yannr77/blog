@@ -1,36 +1,36 @@
 %h1.page_title All Posts
-%table#post_table
-  %tr
-    %th.post_author Name
-    %th.post_title Title
-    %th.post_content Content
-    %th.post_tags Tag
-    %th
-    %th
-  %hr
-  - @posts.each do |post|
-    %tr
-      %td
-        = post.name
-      %td
-        = truncate(post.title)
-      %td
-        = truncate(post.content)
-      %td
-        - if join_tags(post) == ""
-          = "-"
-        - else
-          = join_tags(post)
-      %td
-        = link_to 'Show', post
-        - if can? :update, post
-          %td
-            = link_to 'Edit', edit_post_path(post)
-        - if can? :destoy, post
-          %td
-            = link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete
 
+%hr
 %br
+
+- @posts.each do |post|
+  .block_post
+    .post_title
+      %h2
+        = truncate(post.title, :length => 120)
+    .post_author
+      By 
+      = truncate(post.name, :length => 120)
+      = post.created_at.to_formatted_s(:short)
+    .post_content
+      %h4
+        = truncate(post.content, :length => 120)
+    .post_tags
+      - if join_tags(post) == ""
+        = "-"
+      - else
+        = join_tags(post)
+    %br 
+    = link_to 'Show', post
+    - if can? :update, post
+      = link_to 'Edit', edit_post_path(post)
+    - if can? :destoy, post
+      = link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete
+%br
+%hr
 .new_post_link
   - if can? :create, new_post_path
     = link_to 'New Post', new_post_path
+
+.paginate
+  = will_paginate @posts

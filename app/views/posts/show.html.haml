@@ -11,8 +11,10 @@
 %p
   %b Tags:
   = @post.tags.map {|t| t.name}.join(", ")
+%hr
 %h2 Comments
 = render @post.comments
+%hr
 %h2 Add a comment:
 = render "comments/form"
 - if can? :update, @post

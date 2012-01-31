@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @posts = Post.search(params[:search], params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
